@@ -8,5 +8,8 @@
 </head>
 <body>
 <h1>home페이지 입니다</h1>
+<h3>requestScope.data</h3>
+<h3>sessionScope.data</h3>
+${data}
 </body>
 </html>
