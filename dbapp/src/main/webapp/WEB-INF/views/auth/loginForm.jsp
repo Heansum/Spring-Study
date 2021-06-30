@@ -3,12 +3,14 @@
     
 <%@ include file="../layout/header.jsp" %>
 <div class="container">
-	<form action="/auth/login" method="get">
+	<form action="/auth/login" method="post">
 		<div class="form-group">
-			<label for="username">Username</label> <input type="text" class="form-control" placeholder="Enter username" name="username">
+			<label for="username">Username</label> 
+			<input type="text" class="form-control" placeholder="Enter username" name="username" required="required"/>
 		</div>
 		<div class="form-group">
-			<label for="pwd">Password</label> <input type="password" class="form-control" placeholder="Enter password" name="password">
+			<label for="pwd">Password</label> 
+			<input type="password" class="form-control" placeholder="Enter password" name="password" required="required"/>
 		</div>
 		
 		

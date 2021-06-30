@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
 <title>블로그</title>
@@ -18,8 +19,19 @@
 		</button>
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="/auth/joinForm">회원가입</a></li>
-				<li class="nav-item"><a class="nav-link" href="/auth/loginForm">로그인</a></li>
+			
+				<c:choose> 
+					<c:when test="${empty sessionScope.principal}">
+						<li class="nav-item"><a class="nav-link" href="/auth/joinForm">회원가입</a></li>
+						<li class="nav-item"><a class="nav-link" href="/auth/loginForm">로그인</a></li>
+					</c:when>				
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link" href="/post/saveForm">글쓰기</a></li>
+						<li class="nav-item"><a class="nav-link" href="/user/updateForm">회원정보변경</a></li>
+						<li class="nav-item"><a class="nav-link" href="/user/logout">로그아웃</a></li>
+					</c:otherwise>
+				</c:choose>
+				
 			</ul>
 		</div>
 	</nav>
