@@ -4,7 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+
+import com.korea.dbapp.domain.user.User;
 
 @Entity
 public class Post {
@@ -15,7 +19,12 @@ public class Post {
 	@Lob
 	private String content;
 	
-	private int userId; // DB에 맞추기 위해서 객체를 못가져와서 씀
+	 // DB에 맞추기 위해서 객체를 못가져와서 씀
+	
+	// ORM 으로 포린키를 만들어보자
+	@JoinColumn(name = "myid")
+	@ManyToOne
+	private User user; // ORM 사용
 
 	public int getId() {
 		return id;
@@ -41,13 +50,14 @@ public class Post {
 		this.content = content;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 	
 	
 }

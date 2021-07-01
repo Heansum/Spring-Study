@@ -1,5 +1,6 @@
 package com.korea.dbapp.domain.user;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +11,8 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; // 프라이머리
+	
+	@Column(unique = true, length=20)
 	private String username;
 	private String password;
 	private String email;
